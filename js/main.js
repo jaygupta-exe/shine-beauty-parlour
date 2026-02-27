@@ -1,38 +1,32 @@
 (function ($) {
     "use strict";
 
-    // Preloader
+    // =========================
+    // Preloader (Safe Version)
+    // =========================
     var preloader = function () {
         if ($('#preloader').length > 0) {
-            var loaded = false;
-            var timedOut = false;
 
             var hidePreloader = function () {
-                if (loaded && timedOut) {
-                    $('#preloader').addClass('fade-out');
-                    $('body').removeClass('loading');
-                    setTimeout(function () {
-                        $('#preloader').remove();
-                    }, 800);
-                }
+                $('#preloader').addClass('fade-out');
+                $('body').removeClass('loading');
+
+                setTimeout(function () {
+                    $('#preloader').remove();
+                }, 800);
             };
 
-            $(window).on('load', function () {
-                loaded = true;
-                hidePreloader();
-            });
+            // Hide automatically after 3 seconds
+            setTimeout(hidePreloader, 3000);
 
-            // Minimum 15 seconds duration as per user request
-            setTimeout(function () {
-                timedOut = true;
-                hidePreloader();
-            }, 15000);
+            // Also hide when page fully loads
+            $(window).on('load', hidePreloader);
         }
     };
     preloader();
 
 
-    // Initiate the wowjs
+    // Initiate WOW.js
     new WOW().init();
 
 
@@ -46,7 +40,7 @@
     });
 
 
-    // Back to top button
+    // Back to Top Button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
             $('.back-to-top').fadeIn('slow');
@@ -54,13 +48,14 @@
             $('.back-to-top').fadeOut('slow');
         }
     });
+
     $('.back-to-top').click(function () {
         $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
         return false;
     });
 
 
-    // Header carousel
+    // Header Carousel
     $(".header-carousel").owlCarousel({
         items: 1,
         autoplay: true,
@@ -75,14 +70,14 @@
     });
 
 
-    // Facts counter
+    // Facts Counter
     $('[data-toggle="counter-up"]').counterUp({
         delay: 10,
         time: 2000
     });
 
 
-    // Testimonials carousel
+    // Testimonials Carousel
     $(".testimonial-carousel").owlCarousel({
         autoplay: false,
         smartSpeed: 1000,
@@ -96,17 +91,10 @@
             '<i class="bi bi-chevron-right"></i>'
         ],
         responsive: {
-            0: {
-                items: 1
-            },
-            768: {
-                items: 2
-            },
-            992: {
-                items: 3
-            }
+            0: { items: 1 },
+            768: { items: 2 },
+            992: { items: 3 }
         }
     });
 
 })(jQuery);
-
