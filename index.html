@@ -3,13 +3,16 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Salone - Beauty Salon Website Template</title>
+    <title>Shine Beauty Parlour - Luxury Beauty Salon</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
+
+    <!-- Preload Logo -->
+    <link rel="preload" as="image" href="img/logo.png">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,24 +34,32 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Brand Stylesheet -->
+    <link href="css/brand.css" rel="stylesheet">
+
+    <!-- Preloader Stylesheet -->
+    <link href="css/preloader.css" rel="stylesheet">
 </head>
 
-<body>
-    <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
+<body class="loading">
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preloader-logo-container">
+            <div class="preloader-glow"></div>
+            <img src="img/logo.png" alt="Logo" class="preloader-logo">
         </div>
     </div>
-    <!-- Spinner End -->
+    <!-- Preloader End -->
 
 
     <!-- Navbar Start -->
     <div class="container-fluid bg-light sticky-top p-0">
         <nav class="navbar navbar-expand-lg navbar-light p-0">
-            <a href="index.html" class="navbar-brand bg-primary py-4 px-5 me-0">
-                <h1 class="mb-0"><i class="bi bi-scissors"></i>Salone</h1>
+            <a href="index.html" class="navbar-brand py-2 px-5 me-0">
+                <div class="logo-container">
+                    <img src="img/logo.png" alt="Shine Beauty Parlour" class="logo-img">
+                </div>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse">
@@ -64,7 +75,7 @@
                         <div class="dropdown-menu bg-light mt-2">
                             <a href="team.html" class="dropdown-item">Our Team</a>
                             <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            <a href="404.html" class="dropdown-item">404 Page</a>
+
                         </div>
                     </div>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
@@ -183,7 +194,7 @@
                         <h3 class="mb-3">Haircut</h3>
                         <p class="mb-3">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo
                             et tempor eirmod magna dolore erat amet</p>
-                        <a class="btn btn-sm btn-primary text-uppercase" href="">Read More <i
+                        <a class="btn btn-sm btn-primary text-uppercase" href="haircut.html">Read More <i
                                 class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -193,7 +204,7 @@
                         <h3 class="mb-3">Makeup</h3>
                         <p class="mb-3">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo
                             et tempor eirmod magna dolore erat amet</p>
-                        <a class="btn btn-sm btn-primary text-uppercase" href="">Read More <i
+                        <a class="btn btn-sm btn-primary text-uppercase" href="makeup.html">Read More <i
                                 class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -204,7 +215,7 @@
                         <h3 class="mb-3">Manicure</h3>
                         <p class="mb-3">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo
                             et tempor eirmod magna dolore erat amet</p>
-                        <a class="btn btn-sm btn-primary text-uppercase my-2" href="">Read More <i
+                        <a class="btn btn-sm btn-primary text-uppercase my-2" href="manicure.html">Read More <i
                                 class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -215,7 +226,7 @@
                         <h3 class="mb-3">Pedicure</h3>
                         <p class="mb-3">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo
                             et tempor eirmod magna dolore erat amet</p>
-                        <a class="btn btn-sm btn-primary text-uppercase" href="">Read More <i
+                        <a class="btn btn-sm btn-primary text-uppercase" href="pedicure.html">Read More <i
                                 class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -225,7 +236,7 @@
                         <h3 class="mb-3">Massage</h3>
                         <p class="mb-3">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo
                             et tempor eirmod magna dolore erat amet</p>
-                        <a class="btn btn-sm btn-primary text-uppercase" href="">Read More <i
+                        <a class="btn btn-sm btn-primary text-uppercase" href="massage.html">Read More <i
                                 class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -235,7 +246,7 @@
                         <h3 class="mb-3">Skin Care</h3>
                         <p class="mb-3">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo
                             et tempor eirmod magna dolore erat amet</p>
-                        <a class="btn btn-sm btn-primary text-uppercase" href="">Read More <i
+                        <a class="btn btn-sm btn-primary text-uppercase" href="skincare.html">Read More <i
                                 class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -391,8 +402,11 @@
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-6 pe-lg-5">
-                    <a href="index.html" class="navbar-brand">
-                        <h1 class="display-5 text-primary mb-0"><i class="bi bi-scissors"></i>Salone</h1>
+                    <a href="index.html" class="navbar-brand mb-4 d-block">
+                        <div class="logo-container">
+                            <img src="img/logo.png" alt="Shine Beauty Parlour" class="logo-img"
+                                style="filter: brightness(0) invert(1);">
+                        </div>
                     </a>
                     <p>Aliquyam sed elitr elitr erat sed diam ipsum eirmod eos lorem nonumy. Tempor sea ipsum diam sed
                         clita dolore eos dolores magna erat dolore sed stet justo et dolor.</p>

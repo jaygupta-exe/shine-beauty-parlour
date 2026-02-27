@@ -1,17 +1,37 @@
 (function ($) {
     "use strict";
 
-    // Spinner
-    var spinner = function () {
-        setTimeout(function () {
-            if ($('#spinner').length > 0) {
-                $('#spinner').removeClass('show');
-            }
-        }, 1);
+    // Preloader
+    var preloader = function () {
+        if ($('#preloader').length > 0) {
+            var loaded = false;
+            var timedOut = false;
+
+            var hidePreloader = function () {
+                if (loaded && timedOut) {
+                    $('#preloader').addClass('fade-out');
+                    $('body').removeClass('loading');
+                    setTimeout(function () {
+                        $('#preloader').remove();
+                    }, 800);
+                }
+            };
+
+            $(window).on('load', function () {
+                loaded = true;
+                hidePreloader();
+            });
+
+            // Minimum 15 seconds duration as per user request
+            setTimeout(function () {
+                timedOut = true;
+                hidePreloader();
+            }, 15000);
+        }
     };
-    spinner();
-    
-    
+    preloader();
+
+
     // Initiate the wowjs
     new WOW().init();
 
@@ -24,8 +44,8 @@
             $('.sticky-top').removeClass('shadow-sm').css('top', '-150px');
         }
     });
-    
-    
+
+
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
@@ -35,7 +55,7 @@
         }
     });
     $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
         return false;
     });
 
@@ -47,8 +67,8 @@
         smartSpeed: 1000,
         loop: true,
         dots: false,
-        nav : true,
-        navText : [
+        nav: true,
+        navText: [
             '<i class="bi bi-arrow-left"></i>',
             '<i class="bi bi-arrow-right"></i>'
         ]
@@ -71,22 +91,22 @@
         center: true,
         dots: false,
         nav: true,
-        navText : [
+        navText: [
             '<i class="bi bi-chevron-left"></i>',
             '<i class="bi bi-chevron-right"></i>'
         ],
         responsive: {
-            0:{
-                items:1
+            0: {
+                items: 1
             },
-            768:{
-                items:2
+            768: {
+                items: 2
             },
-            992:{
-                items:3
+            992: {
+                items: 3
             }
         }
     });
-    
+
 })(jQuery);
 
